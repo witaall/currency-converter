@@ -1,5 +1,5 @@
 export default class CustomAPIError extends Error {
-  statusCode?: number;
+  statusCode!: number;
   
   constructor(message: string) {
     super(message);

@@ -25,7 +25,7 @@ const Currencies = {
 /**
  * 貨幣種類
  */
-export enum Currency {
+enum Currency {
   TWD = 'TWD',
   JPY = 'JPY',
   USD = 'USD',
@@ -52,7 +52,7 @@ const convertOutputAmount = (amount: number): string => {
 /**
  * 回應訊息
  */
-export enum ResponseMsg {
+enum ResponseMsg {
   SUCCESS = 'success',
   FAIL = 'fail',
 }
@@ -75,6 +75,8 @@ const convertCurrency = (req: Request, res: Response) => {
 };
 
 export {
+  Currencies,
+  ResponseMsg,
   convertCurrency,
-  convertInputAmount
+  convertInputAmount, Currency
 };
