@@ -1,0 +1,94 @@
+{
+  "paths": {
+    "/currency-conversion": {
+      "get": {
+        "tags": [
+          "currency conversion"
+        ],
+        "summary": "貨幣轉換",
+        "description": "貨幣轉換",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "amount",
+            "description": "金額",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "$1,525"
+            }
+          },
+          {
+            "in": "query",
+            "name": "source",
+            "description": "來源貨幣",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "USD",
+                "JPY",
+                "TWD"
+              ],
+              "example": "USD"
+            }
+          },
+          {
+            "in": "query",
+            "name": "target",
+            "description": "目標貨幣",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "USD",
+                "JPY",
+                "TWD"
+              ],
+              "example": "JPY"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "msg": {
+                      "type": "string",
+                      "description": "成功或失敗",
+                      "example": "success"
+                    },
+                    "amount": {
+                      "type": "string",
+                      "description": "轉換後的金額",
+                      "amount": "$1,525.00"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "參數錯誤",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "msg": {
+                      "type": "string",
+                      "description": "失敗訊息",
+                      "example": "source is required, source is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
